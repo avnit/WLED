@@ -101,3 +101,22 @@ If you are prone to photosensitive epilepsy, we recommend you do **not** use thi
 If you still want to try, avoid strobe, lightning or noise modes and high effect speed settings.
 
 As per the EUPL license, no liability is assumed for any damage to you or any other person or equipment.
+
+<!-- ARCH-DIAGRAM:START -->
+
+## Architecture
+
+> Auto-generated architecture diagram. See [`docs/context-map.md`](docs/context-map.md) for the full context map (core application, containers/cloud, and database connections).
+
+```mermaid
+flowchart TD
+  User([User / Client])
+  UI["Frontend:80/25/1192<br/>Next.js / React"]
+  App["WLED<br/><small>index.js</small><br/>FastAPI + Uvicorn / Express / Node"]
+  Img["Container image<br/>(Docker)"]
+  User --> UI
+  UI --> App
+  App -.deploy.-> Img
+```
+
+<!-- ARCH-DIAGRAM:END -->
